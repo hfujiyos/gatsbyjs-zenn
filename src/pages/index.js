@@ -1,5 +1,6 @@
 import React from "react"
+import "../styles/style.css"
 
 export default function Home() {
-  return <div>Hello from Gatsby!</div>
+  return <div className="message">Hello from Gatsby!</div>
 }
