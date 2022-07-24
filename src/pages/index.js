@@ -1,6 +1,10 @@
 import React from "react"
-import "../styles/style.css"
+import Layout from "../components/layout"
 
 export default function Home() {
-  return <div className="message">Hello from Gatsby!</div>
+  return (
+    <Layout>
+      <div>Hello world!</div>
+    </Layout>
+  )
 }

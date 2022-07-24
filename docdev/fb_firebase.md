@@ -1,28 +1,31 @@
 # Firebase
+
 ## 料金プラン
-* 課金プラン（Blazeプラン）
-  * GCPのCloudFunctionsも利用でき、360MB/日までの無料枠がある。
-  * 360MB/日の超過分が課金枠(＄0.15/GB)、例えば一斉ｱｸｾｽ時の425.2MB通信の課金は8円となる。
-  * 予算ｱﾗｰﾄを25$で設定（ﾒｰﾙを受け取る費用は、$12.50(50%)、$22.50(90%)、$25.00(100%)）
+
+- 課金プラン（Blaze プラン）
+  - GCP の CloudFunctions も利用でき、360MB/日までの無料枠がある。
+  - 360MB/日の超過分が課金枠(＄ 0.15/GB)、例えば一斉ｱｸｾｽ時の 425.2MB 通信の課金は 8 円となる。
+  - 予算ｱﾗｰﾄを 25$で設定（ﾒｰﾙを受け取る費用は、$12.50(50%)、$22.50(90%)、$25.00(100%)）
 
 ## 環境構築（Firebase）
-* [Firebase Console｜Google](https://console.firebase.google.com/?hl=ja) にアクセス
-* Googleサインインする
-* [プロジェクトを追加]をクリック
-* [プロジェクト名]を設定して[続行]をクリック
-* 通信量を最小化するため[Googleアナリティクス]を無効化して、[プロジェクトを作成]をクリック
-* [続行]をクリック
-* [WEB]をクリック
-* [アプリ名]を設定して[アプリを登録]をクリック
-* [コンソールに進む]をクリック
-* [⚙] - [プロジェクトの設定]をクリック
-* [構成]をクリックしてコンフィグ情報をコピー
+
+- [Firebase Console ｜ Google](https://console.firebase.google.com/?hl=ja) にアクセス
+- Google サインインする
+- [プロジェクトを追加]をクリック
+- [プロジェクト名]を設定して[続行]をクリック
+- 通信量を最小化するため[Google アナリティクス]を無効化して、[プロジェクトを作成]をクリック
+- [続行]をクリック
+- [WEB]をクリック
+- [アプリ名]を設定して[アプリを登録]をクリック
+- [コンソールに進む]をクリック
+- [⚙] - [プロジェクトの設定]をクリック
+- [構成]をクリックしてコンフィグ情報をコピー
 
 ## 環境構築（React.js）
 
 ### ライブラリインストール（Firebase）
 
-* ライブラリインストール（Firebase）
+- ライブラリインストール（Firebase）
 
   ```sh
   npm i firebase@8.10.0
@@ -30,13 +33,13 @@
 
 ### 環境変数ファイル（.env）
 
-* 任意フロントエンドアプリに `.env` 環境変数ファイルを作成します。
+- 任意フロントエンドアプリに `.env` 環境変数ファイルを作成します。
 
   ```sh
   $ touch .env
   ```
 
-* `.env`
+- `.env`
   ```
   REACT_APP_FIREBASE_APIKEY="AIzaSyCh2i8EiXwxjVfqo16qwgYpGRv9ycz6MP8"
   REACT_APP_FIREBASE_DOMAIN="reactjs-hooks-7670b.firebaseapp.com"
@@ -49,19 +52,19 @@
 
 ### コンフィグファイル（src/firebase.ts）
 
-* 任意フロントエンドアプリに `src/firebase.ts` コンフィグファイルを作成します。
+- 任意フロントエンドアプリに `src/firebase.ts` コンフィグファイルを作成します。
 
   ```sh
   $ touch src/firebase.ts
   ```
 
-* `src/firebase.ts`
+- `src/firebase.ts`
 
   ```ts
-  import firebase from "firebase/app";
-  import "firebase/conpat/app";
-  import "firebase/conpat/firestore";
-  import "firebase/conpat/auth";
+  import firebase from "firebase/app"
+  import "firebase/conpat/app"
+  import "firebase/conpat/firestore"
+  import "firebase/conpat/auth"
 
   const firebaseApp = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
@@ -71,12 +74,12 @@
     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  });
+  })
 
-  export const db = firebaseApp.firestore();
-  export const auth = firebase.auth();
+  export const db = firebaseApp.firestore()
+  export const auth = firebase.auth()
   ```
 
 ## 参考文献
-* [Udemy｜最速で学ぶFirebase + React Hooks (TypeScript)｜13 ](https://www.udemy.com/course/firebasereact-hookstypescript-todo/)
-* [Confluence｜Firebase環境構築](https://growseedinc.atlassian.net/wiki/spaces/dev/pages/11239625/Firebase)
+
+- [Udemy ｜最速で学ぶ Firebase + React Hooks (TypeScript)｜ 13 ](https://www.udemy.com/course/firebasereact-hookstypescript-todo/)
