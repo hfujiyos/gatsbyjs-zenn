@@ -59,7 +59,7 @@
 
   ```sh
   開発時にはコミット
-  $ git add
+  $ git add .
   $ git commit -m "Fix login logic"
 
   featureブランチをリモートリポジトリへプッシュ
