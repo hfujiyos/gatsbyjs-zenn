@@ -1,15 +1,19 @@
 import React from "react"
 import Layout from "../components/layout"
 import Hero from "../components/hero"
+import PostLink from "../components/post-link"
 
 /**
  * Homeコンポーネント
  * @return {Layout} Homeコンポーネント
  */
-export default function Home() {
+ export default function Home() {
   return (
     <Layout>
       <Hero />
+      <PostLink />
+	  <PostLink />
+	  <PostLink />
     </Layout>
   )
 }
