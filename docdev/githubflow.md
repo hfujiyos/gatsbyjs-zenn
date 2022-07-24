@@ -13,6 +13,7 @@
 - ローカルリポジトリで initial commit してリモートへプッシュ
 
   ```sh
+  $ git add .
   $ git commit -m "initial commit"
   $ git remote add origin git@github.com:hfujiyos/gatsbyjs-site.git
   $ git push -u origin main
