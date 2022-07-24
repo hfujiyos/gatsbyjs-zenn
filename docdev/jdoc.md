@@ -35,7 +35,3 @@
     return `Hello ${message}`
   }
   ```
-
-## 参考文献
-
-- [Confluence ｜ JSDoc（基礎編）](https://growseedinc.atlassian.net/wiki/spaces/dev/pages/8126642/F133.+JSDoc)

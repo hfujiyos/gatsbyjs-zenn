@@ -21,4 +21,3 @@
 ## 参考文献
 
 - [最速で学ぶ Firebase + React Hooks (TypeScript)｜ 14](https://www.udemy.com/course/firebasereact-hookstypescript-todo/)
-- [Confluence ｜ Firebase ｜ Cloud Firestore（環境構築）](https://growseedinc.atlassian.net/wiki/spaces/dev/pages/11272481/Cloud+Firesore)

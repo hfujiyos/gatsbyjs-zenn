@@ -11,4 +11,3 @@
 ## 参考文献
 
 - [最速で学ぶ Firebase + React Hooks (TypeScript)｜ 23](https://www.udemy.com/course/firebasereact-hookstypescript-todo/)
-- [Confluence ｜ Firebase ｜ Authentication（環境構築）](https://growseedinc.atlassian.net/wiki/spaces/dev/pages/11272543/Authentication)
