@@ -1,17 +1,19 @@
 import React from "react"
 import "../styles/layout.css"
+import Header from "./header"
 
 /**
  * Layoutコンポーネント
- * @param {any} children メッセージ
+ * @param {any} children プロップス
  * @return {div} Layoutコンポーネント
- */
-const Layout = ({ children }) => {
-    return (
-        <div className="layout">
-            <main>{children}</main>
-        </div>
-    )
-}
-
-export default Layout
+ */ 
+ const Layout = ({ children }) => {
+     return (
+         <div className="layout">
+             <Header />
+             <main>{children}</main>
+         </div>
+     )
+ }
+ 
+ export default Layout
