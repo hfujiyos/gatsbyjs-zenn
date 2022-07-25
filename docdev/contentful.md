@@ -29,13 +29,20 @@ $ npm install --save gatsby-source-contentful
 新しい画像プラグインも導入していきます。これにより、静的画像用(StaticImage)と動的画像用(GatsbyImage)の画像コンポーネントが使用できるようになります。
 
 ```sh
-npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-transformer-sharp
+$ npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-transformer-sharp
+```
+
+Contentful から取得したデータの中の body は markdown 形式でデータが保存されており、表示する際には HTML に変換する必要があります。Markdown のデータを GraphQL 上で HTML に変換できる Gatsby のプラグインをインストール。
+
+```sh
+マークダウンファイルのHTML変換するGraphQL用プラグイン導入
+$ npm install gatsby-transformer-remark
 ```
 
 gatsby-config.js に利用する環境変数ファイルとプラグイン情報を書くことができ、以下のように設定します。
 .env.development はデフォルトで.gitignore に追加されているため、バージョン管理されずローカルにのみ保存されます。そのため、Github にソースコードをアップロードした際に API のキーが外部に公開されることを防いでいます。
 
-```sh:gatsby-config.js
+```js:gatsby-config.js
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -56,7 +63,17 @@ module.exports = {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
         accessToken: process.env.GATSBY_CONTENTFUL_API_KEY
       }
-    }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+        plugins: [],
+      },
+    },
   ],
 }
 ```

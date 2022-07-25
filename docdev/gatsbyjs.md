@@ -34,24 +34,81 @@
 
   http://localhost:8000/
 
+## Contentful を利用する環境変数設定
+
+- 環境変数をファイルから利用するためのライブラリ dotenv をインストール
+
+  ```sh
+  $ npm install --save dotenv
+  ```
+
+- プロジェクト直下に.env.development ファイルを用意
+
+  ```sh:.env.development
+  GATSBY_CONTENTFUL_SPACE_ID=[スペースID]
+  GATSBY_CONTENTFUL_API_KEY=[APIキー]
+  ```
+
 ## 追加ライブラリ導入
 
-- プラグインのインストール
+- Contentful 連携のライブラリ導入
+
+  ```sh
+  Contentful 連携のライブラリ導入
+  $ npm install --save gatsby-source-contentful
+  ```
+
+  ```sh
+  画像プラグインのライブラリ導入
+  $ npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-transformer-sharp
+  ```
+
+- GraphQL プラグインのインストール
 
   ```sh
   ローカルファイルシステムへのアクセス用プラグイン導入
   $ npm install gatsby-source-filesystem
+  ```
 
+  ```sh
   マークダウンファイルのHTML変換するGraphQL用プラグイン導入
   $ npm install gatsby-transformer-remark
   ```
 
-- gatsby-config.js にプラグイン設定
+- gatsby-config.js に利用する環境変数ファイルとプラグイン情報を記述
 
-  ```js
+  ```js:gatsby-config.js
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+  })
+
   module.exports = {
-    ...
+    siteMetadata: {
+      title: "Dev Blog",
+      description: "Gatsbyで作成したブログサイトです。",
+      author: "Engineer X",
+    },
     plugins: [
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`, // Needed for dynamic images
+      {
+        resolve: `gatsby-source-contentful`,
+        options: {
+          spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+          accessToken: process.env.GATSBY_CONTENTFUL_API_KEY,
+        },
+      },
+      {
+        resolve: `gatsby-transformer-remark`,
+        options: {
+          commonmark: true,
+          footnotes: true,
+          pedantic: true,
+          gfm: true,
+          plugins: [],
+        },
+      },
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -59,7 +116,6 @@
           path: `${__dirname}/src/`,
         },
       },
-      "gatsby-transformer-remark",
     ],
   }
   ```
