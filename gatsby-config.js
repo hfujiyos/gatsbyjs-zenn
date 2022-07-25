@@ -1,15 +1,23 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
- module.exports = {
+module.exports = {
   siteMetadata: {
     title: "Dev Blog",
     description: "Gatsbyで作成したブログサイトです。",
     author: "Engineer X"
   },
-  /* Your site config here */
-  plugins: [],
+  plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+        accessToken: process.env.GATSBY_CONTENTFUL_API_KEY
+      }
+    }
+  ],
 }
