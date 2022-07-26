@@ -1,14 +1,14 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-  /**
-   * SEOコンポーネント
-   * @param {any} title SEO情報のタイトル
-   * @param {any} description SEO情報の説明
-   * @return {Helmet} SEOコンポーネント
-   * @description HTMLのヘッダータグにSEO情報を付与される
-   * @description SEOと大文字定義により、PascalCaseで書くようWarning発生するが今回対応しない
-   */
+/**
+ * SEOコンポーネント
+ * @param {any} title SEO情報のタイトル
+ * @param {any} description SEO情報の説明
+ * @return {Helmet} SEOコンポーネント
+ * @description HTMLのヘッダータグにSEO情報を付与される
+ * @description SEOと大文字定義により、PascalCaseで書くようWarning発生するが今回対応しない
+ */
 const SEO = ({ title, description }) => {
     return (
         <Helmet
