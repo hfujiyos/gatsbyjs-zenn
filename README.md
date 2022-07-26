@@ -62,6 +62,13 @@
   $ npm install gatsby-transformer-remark
   ```
 
+- SEO 連携のライブラリ導入
+
+  ```sh
+  headタグを管理するプラグイン導入
+  $ npm install --save react-helmet
+  ```
+
 - プロジェクト直下に.env.development 環境変数ファイルを用意
 
   ```sh:.env.development

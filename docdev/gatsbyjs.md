@@ -63,7 +63,7 @@
   $ npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-transformer-sharp
   ```
 
-- GraphQL プラグインのインストール
+- GraphQL 連携のライブラリ導入
 
   ```sh
   ローカルファイルシステムへのアクセス用プラグイン導入
@@ -73,6 +73,13 @@
   ```sh
   マークダウンファイルのHTML変換するGraphQL用プラグイン導入
   $ npm install gatsby-transformer-remark
+  ```
+
+- SEO 連携のライブラリ導入
+
+  ```sh
+  headタグを管理するプラグイン導入
+  $ npm install --save react-helmet
   ```
 
 - gatsby-config.js に利用する環境変数ファイルとプラグイン情報を記述
